@@ -58,31 +58,7 @@ class NewsService: NSObject, URLSessionDelegate {
         
         task.resume()
     }
-    
-    func getTopArticles(completionHandler: @escaping (NewsResponse?) -> Void) {
-        let request = createRequestWith(url: "getTop")
-        
-        let task = session.dataTask(with: request) { d, r, e in
-            if e != nil {
-                completionHandler(nil)
-                return
-            }
-            
-            guard (r as? HTTPURLResponse) != nil else {
-                completionHandler(nil)
-                return
-            }
-            
-            guard let data = d else {
-                completionHandler(nil)
-                return
-            }
-            
-            completionHandler(try? self.jsonDecoder.decode(NewsResponse.self, from: data))
-        }
-        
-        task.resume()
-    }
+
     
     func getArticlesByTag(_ tag: String, completionHandler: @escaping (NewsResponse?) -> Void) {
         let request = createRequestWith(url: "getNewsByTag/\(tag)")
@@ -109,55 +85,6 @@ class NewsService: NSObject, URLSessionDelegate {
         task.resume()
     }
     
-    func getNewsByTag(_ tag: String, completionHandler: @escaping (FullRss?) -> Void) {
-        let request = createRequestWith(url: "getNews/\(tag)")
-        
-        let task = session.dataTask(with: request) { d, r, e in
-            if e != nil {
-                completionHandler(nil)
-                return
-            }
-            
-            guard (r as? HTTPURLResponse) != nil else {
-                completionHandler(nil)
-                return
-            }
-            
-            guard let data = d else {
-                completionHandler(nil)
-                return
-            }
-            
-            completionHandler(try? self.jsonDecoder.decode(FullRss.self, from: data) )
-        }
-        
-        task.resume()
-    }
-    
-    func getImagesUrl(completionHandler: @escaping (Images?) -> Void) {
-        let request = createRequestWith(url: "getCats")
-        
-        let task = session.dataTask(with: request) { d, r, e in
-            if e != nil {
-                completionHandler(nil)
-                return
-            }
-            
-            guard (r as? HTTPURLResponse) != nil else {
-                completionHandler(nil)
-                return
-            }
-            
-            guard let data = d else {
-                completionHandler(nil)
-                return
-            }
-            
-            completionHandler(try? self.jsonDecoder.decode(Images.self, from: data))
-        }
-        
-        task.resume()
-    }
     
     func getFullDescription(_ description: String, completionHandler: @escaping (String?) -> Void) {
         let requestString = description.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
