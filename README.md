@@ -2,7 +2,7 @@ Fake News app - проект дисциплины "Разработка моби
 Репозиторий содержит полный код для приложения на языке Swift, а также jupyter notebook тетрадку, в которой содержится код для сервера на языке python с использованием библиотек flask-ngrok и transformers.
 
 Для работы приложения необходимо запустить сервер:
-1. Скачать файл flask_collab_gpt.ipynb, открыть его в Google Colab;
+1. Скачать файл flask_collab_gpt.ipynb, открыть его в Google Colab (или https://colab.research.google.com/drive/1LST5lW4biWtUYWhEwah9CjEG-4Xh5YjT);
 2. Запустить все ячейки кода;
 3. В выводе последней ячейки будет ссылка на сервер типа "http://xxxxxxx.ngrok.io";
 4. Запустить приложение, встряхнуть телефон (или Shake Gesture в симуляторе), внести туда адрес сервера из пункта выше;
