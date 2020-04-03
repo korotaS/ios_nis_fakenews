@@ -159,6 +159,6 @@ class NewsService: NSObject, URLSessionDelegate {
     }
     
     private func createRequestWith(url: String, withTimout timeout: TimeInterval = 10) -> URLRequest {
-        return URLRequest(url: URL(string: "\(basePart)/\(url)")!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
+        return URLRequest(url: URL(string: "\(basePart)/\(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")")!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: timeout)
     }
 }

@@ -20,8 +20,23 @@ class IpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        AllServices.newsService.basePart = textField.text ?? ""
+    let addres = textField.text ?? ""
+
+    guard URL(string: addres) != nil else {
+        showAlert()
+        return false
+    }
+
+    AllServices.newsService.basePart = addres
         self.dismiss(animated: true)
         return true
+    }
+
+    func showAlert() {
+        let alertController = UIAlertController(title: "Что-то пошло не так", message: "Неверный адрес", preferredStyle: .alert)
+
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+
+        self.present(alertController, animated: true)
     }
 }
