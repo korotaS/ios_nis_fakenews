@@ -87,8 +87,8 @@ class NewsService: NSObject, URLSessionDelegate {
     
     
     func getFullDescription(_ description: String, completionHandler: @escaping (String?) -> Void) {
-        let requestString = description.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let request = createRequestWith(url: "genText/\(requestString ?? "Error")", withTimout: 20)
+        // let requestString = description.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let request = createRequestWith(url: "genText/\(description)", withTimout: 20)
         
         let task = session.dataTask(with: request) { d, r, e in
             if e != nil {
