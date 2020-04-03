@@ -2,7 +2,7 @@
 //  ArticlesModel.swift
 //  NisNews
 //
-//  Created by Артём Кулаков on 17.03.2020.
+//  Created by K&K on 17.03.2020.
 //  Copyright © 2020 KK. All rights reserved.
 //
 

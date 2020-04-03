@@ -2,8 +2,8 @@
 //  IpViewController.swift
 //  NisNews
 //
-//  Created by Артём Кулаков on 01.04.2020.
-//  Copyright © 2020 KKK. All rights reserved.
+//  Created by K&K on 01.04.2020.
+//  Copyright © 2020 KK. All rights reserved.
 //
 
 import UIKit
